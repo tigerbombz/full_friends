@@ -17,7 +17,7 @@ var friends = require('./../controllers/friends.js');
     });
 
     app.delete('/friends/:id', function(req, res){
-      console.log("Trying to Delete");
+      console.log(req.params);
       friends.delete(req, res);
     })
 

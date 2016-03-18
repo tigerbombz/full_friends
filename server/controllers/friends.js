@@ -25,7 +25,9 @@ module.exports = (function() {
     },
 
     delete: function(req, res){
-
+      Friend.remove({_id: req.params.id}, function (err, results){
+      console.log(results);
+      });
     }
 
   };

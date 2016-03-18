@@ -34,7 +34,7 @@
       }
 
       factory.delete = function (friend, callback){
-        friends.splice(friends.indexOf(friend), 1);
+        $http.delete('/friends/' + friend._id);
         callback(friends);
       }
 
@@ -63,8 +63,10 @@
       $scope.index();
 
       $scope.delete = function (friend){
-        FriendFactory.delete(friend, function(friends){
-          $scope.friends = friends
+        FriendFactory.delete(friend, function(){
+          FriendFactory.index(function (friend){
+          $scope.friends = friend
+          })
         })
       }
 
